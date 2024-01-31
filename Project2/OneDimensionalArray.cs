@@ -8,12 +8,12 @@ namespace Project2
 
         public OneDimensionalArray(bool getFromUser) : base(getFromUser)
         {
-            Create(getFromUser);
+            
         }
 
         private int[] GetFromUser()
         {
-            Console.WriteLine("Получение массива с клавиатуры, введите длину");
+            Console.WriteLine("Получение одномерного массива с клавиатуры, введите длину");
             int length = int.Parse(Console.ReadLine());
             int[] array = new int[length];
             Console.WriteLine("Вводите значения");
@@ -22,7 +22,6 @@ namespace Project2
                 int value = int.Parse(Console.ReadLine());
                 array[i] = value;
             }
-            Console.WriteLine("Массив получен");
             return array;
         }
 

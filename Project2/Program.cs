@@ -15,6 +15,7 @@ namespace Project2
             arrays[2] = new JaggedArray(getFromUser);
             foreach (BaseArray array in arrays)
             {
+                Console.WriteLine("");
                 Console.WriteLine("Массив: ");
                 array.Print();
                 Console.WriteLine("Среднее значение: ");

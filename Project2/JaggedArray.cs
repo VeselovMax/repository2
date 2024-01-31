@@ -8,12 +8,12 @@ namespace Project2
 
         public JaggedArray(bool getFromUser) : base(getFromUser)
         {
-            Create(getFromUser);
+            
         }
 
         private int[][] GetFromUser()
         {
-            Console.Write("Введите кол-во ступеней: ");
+            Console.Write("Получение ступенчатого массива с клавиатуры, введите кол-во ступеней: ");
             int height = int.Parse(Console.ReadLine());
             int[][] array = new int[height][];
             int length;

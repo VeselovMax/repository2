@@ -8,7 +8,7 @@ namespace Project2
 
         public TwoDimensionalArray(bool getFromUser) : base(getFromUser)
         {
-            Create(getFromUser);
+            
         }
 
         public override void Print()
@@ -53,7 +53,7 @@ namespace Project2
 
         private int[,] GetFromUser()
         {
-            Console.Write("Введите длину: ");
+            Console.Write("Получение двумерного массива с клавиатуры, введите длину: ");
             int length = int.Parse(Console.ReadLine());
             Console.Write("Введите ширину: ");
             int width = int.Parse(Console.ReadLine());
