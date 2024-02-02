@@ -4,15 +4,29 @@ namespace Project2
 {
     public abstract class BaseArray
     {
-        protected BaseArray(bool getFromUser)
+        public BaseArray(bool getFromUser)
         {
             Create(getFromUser);
         }
 
         public abstract void Print();
 
-        public abstract void Create(bool getFromUser);
-        
+        public virtual void Create(bool getFromUser)
+        {
+            if (getFromUser)
+            {
+                GetFromUser();
+            }
+            else
+            {
+                GetRandom();
+            }
+        }
+
+        protected abstract void GetFromUser();
+
+        protected abstract void GetRandom();
+
         public abstract decimal GetAverageValue();
     }
 }

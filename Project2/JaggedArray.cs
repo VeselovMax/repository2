@@ -11,11 +11,11 @@ namespace Project2
             
         }
 
-        private int[][] GetFromUser()
+        protected override void GetFromUser()
         {
             Console.Write("Получение ступенчатого массива с клавиатуры, введите кол-во ступеней: ");
             int height = int.Parse(Console.ReadLine());
-            int[][] array = new int[height][];
+            array = new int[height][];
             int length;
             for (int i = 0; i < array.Length; i++)
             {
@@ -28,14 +28,13 @@ namespace Project2
                     array[i][j] = int.Parse(Console.ReadLine());
                 }
             }
-            return array;
         }
 
-        private int[][] GetRandom()
+        protected override void GetRandom()
         {
             Random random = new Random();
             int height = random.Next(2, 6);
-            int[][] array = new int[height][];
+            array = new int[height][];
             int length;
             for (int i = 0; i < height; i++)
             {
@@ -45,19 +44,6 @@ namespace Project2
                 {
                     array[i][j] = random.Next(0, 10);
                 }
-            }
-            return array;
-        }
-
-        public override void Create(bool getFromUser)
-        {
-            if (getFromUser)
-            {
-                array = GetFromUser();
-            }
-            else
-            {
-                array = GetRandom();
             }
         }
 

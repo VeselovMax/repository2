@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace Project2
 {
@@ -23,12 +24,12 @@ namespace Project2
             }
         }
 
-        private int[,] GetRandom()
+        protected override void GetRandom()
         {
             Random random = new Random();
             int width = random.Next(2, 6);
             int length = random.Next(2, 6);
-            int[,] array = new int[width, length];
+            array = new int[width, length];
             for (int i = 0; i < width; i++)
             {
                 for (int j = 0; j < length; j++)
@@ -36,28 +37,15 @@ namespace Project2
                     array[i, j] = random.Next(0, 10);
                 }
             }
-            return array;
         }
 
-        public override void Create(bool getFromUser)
-        {
-            if (getFromUser)
-            {
-                array = GetFromUser();
-            }
-            else
-            {
-                array = GetRandom();
-            }
-        }
-
-        private int[,] GetFromUser()
+        protected override void GetFromUser()
         {
             Console.Write("Получение двумерного массива с клавиатуры, введите длину: ");
             int length = int.Parse(Console.ReadLine());
             Console.Write("Введите ширину: ");
             int width = int.Parse(Console.ReadLine());
-            int[,] array = new int[width, length];
+            array = new int[width, length];
             Console.WriteLine("Вводите значения:");
             for (int i = 0; i < array.GetLength(0); i++)
             {
@@ -66,7 +54,6 @@ namespace Project2
                     array[i, j] = int.Parse(Console.ReadLine());
                 }
             }
-            return array;
         }
 
         public override decimal GetAverageValue()
