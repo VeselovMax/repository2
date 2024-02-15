@@ -1,5 +1,5 @@
 using System;
-using System.Diagnostics.Contracts;
+
 namespace Project2
 {
     public abstract class BaseArray

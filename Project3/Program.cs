@@ -22,7 +22,7 @@ namespace Project3
                 Console.WriteLine(array.GetAverageValue());
             }
 
-            Console.WriteLine("");
+            Console.WriteLine("-----------------------------------------------------------------------");
 
             IPrinter[] Objects = new IPrinter[4];
             Objects[0] = new Week();
