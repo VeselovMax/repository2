@@ -2,7 +2,7 @@
 
 namespace Project4
 {
-    public sealed class OneDimensionalArray : BaseArray, IOneDimensionalArray
+    public sealed class OneDimensionalArray : BaseArray
     {
         private int[] array;
 
@@ -50,69 +50,6 @@ namespace Project4
                 sum += array[i];
             }
             return sum / array.Length;
-        }
-
-        void IOneDimensionalArray.DeleteElementsBiggerThan100()
-        {
-            int count = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] <= 100 && array[i] >= -100)
-                {
-                    count += 1;
-                }
-            }
-            int[] new_array = new int[count];
-            int count2 = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] <= 100 && array[i] >= -100)
-                {
-                    new_array[count2] = array[i];
-                    count2++;
-                }
-            }
-            array = new_array;
-        }
-
-        void IOneDimensionalArray.DeleteRepeating()
-        {
-            int count = 0;
-            bool isUnique = true;
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array.Length; j++)
-                {
-                    if (i > j && array[i] == array[j])
-                    {
-                        isUnique = false;
-                    }
-                }
-                if (isUnique)
-                {
-                    count++;
-                }
-                isUnique = true;
-            }
-            int[] new_array = new int[count];
-            int count1 = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array.Length; j++)
-                {
-                    if (i > j && array[i] == array[j])
-                    {
-                        isUnique = false;
-                    }
-                }
-                if (isUnique)
-                {
-                    new_array[count1] = array[i];
-                    count1++;
-                }
-                isUnique = true;
-            }
-            array = new_array;
         }
     }
 }

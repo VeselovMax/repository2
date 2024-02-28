@@ -2,7 +2,7 @@
 
 namespace Project4
 {
-    public sealed class TwoDimensionalArray : BaseArray, ITwoDimensionalArray
+    public sealed class TwoDimensionalArray : BaseArray
     {
         private int[,] array;
 
@@ -63,25 +63,6 @@ namespace Project4
                 }
             }
             return sum / array.Length;
-        }
-
-        void ITwoDimensionalArray.PrintAsSnake()
-        {
-            for (int i = 0; i < array.GetLength(0); i++)
-            {
-                for (int j = 0; j < array.GetLength(1); j++)
-                {
-                    if (i % 2 == 0)
-                    {
-                        Console.Write($"{array[i, j]} ");
-                    }
-                    else
-                    {
-                        Console.Write($"{array[i, array.GetLength(1) - j - 1]} ");
-                    }
-                }
-                Console.WriteLine("");
-            }
         }
     }
 }

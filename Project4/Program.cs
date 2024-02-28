@@ -6,7 +6,7 @@ namespace Project4
     {
         static void Main(string[] args)
         {
-            bool getFromUser;
+            
         }
         
         static bool CheckFromUser()

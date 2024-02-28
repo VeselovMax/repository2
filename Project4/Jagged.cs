@@ -2,7 +2,7 @@
 
 namespace Project4
 {
-    public sealed class JaggedArray : BaseArray, IJaggedArray
+    public sealed class JaggedArray : BaseArray
     {
         private int[][] array;
 
@@ -44,20 +44,6 @@ namespace Project4
             }
         }
 
-        void IJaggedArray.ChangeEven()
-        {
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array[i].Length; j++)
-                {
-                    if (array[i][j] % 2 == 0)
-                    {
-                        array[i][j] = i * j;
-                    }
-                }
-            }
-        }
-
         public override decimal GetAverageValue()
         {
             int sum = 0;
@@ -71,26 +57,6 @@ namespace Project4
                 }
             }
             return sum / count;
-        }
-
-        string IJaggedArray.GetAverageInnerValues()
-        {
-            string answer = "";
-            decimal sum = 0;
-            int count = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                sum = 0;
-                count = 0;
-                for (int j = 0; j < array[i].Length; j++)
-                {
-                    sum += array[i][j];
-                    count++;
-                }
-                answer += Convert.ToString(sum / count);
-                answer += " ";
-            }
-            return answer;
         }
 
         public override void Print()
