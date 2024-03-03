@@ -6,7 +6,7 @@ namespace Project4
     {
         static void Main(string[] args)
         {
-            
+            Console.WriteLine("1");
         }
         
         static bool CheckFromUser()

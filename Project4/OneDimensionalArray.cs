@@ -2,7 +2,7 @@
 
 namespace Project4
 {
-    public sealed class OneDimensionalArray : BaseArray
+    public sealed class OneDimensionalArray<T> : BaseArray
     {
         private int[] array;
 
