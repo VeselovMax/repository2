@@ -2,11 +2,11 @@
 
 namespace Project4
 {
-    public sealed class OneDimensionalArray<T> : BaseArray
+    public sealed class OneDimensionalArray<T> : BaseArray<T>
     {
-        private int[] array;
+        private T[] array;
 
-        public OneDimensionalArray(bool getFromUser) : base(getFromUser) { }
+        public OneDimensionalArray(bool getFromUser, ValueProvider<T> input_provider) : base(getFromUser, input_provider) {}
 
         public override void Print()
         {
@@ -21,12 +21,11 @@ namespace Project4
         {
             Console.WriteLine("Получение одномерного массива с клавиатуры, введите длину");
             int length = int.Parse(Console.ReadLine());
-            array = new int[length];
+            array = new T[length];
             Console.WriteLine("Вводите значения");
             for (int i = 0; i < array.Length; i++)
             {
-                int value = int.Parse(Console.ReadLine());
-                array[i] = value;
+                array[i] = provider.ConvertFromString(Console.ReadLine());
             }
         }
 
@@ -34,22 +33,11 @@ namespace Project4
         {
             Random random = new Random();
             int length = random.Next(2, 6);
-            array = new int[length];
+            array = new T[length];
             for (int i = 0; i < array.Length; i++)
             {
-                int value = random.Next(0, 10);
-                array[i] = value;
+                array[i] = provider.Generate();
             }
-        }
-
-        public override decimal GetAverageValue()
-        {
-            decimal sum = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                sum += array[i];
-            }
-            return sum / array.Length;
         }
     }
 }

@@ -2,10 +2,12 @@
 
 namespace Project4
 {
-    public abstract class BaseArray : IBaseArray
+    public abstract class BaseArray<T> : IBaseArray
     {
-        public BaseArray(bool getFromUser)
+        protected ValueProvider<T> provider;
+        public BaseArray(bool getFromUser, ValueProvider<T> input_provider)
         {
+            provider = input_provider;
             Create(getFromUser);
         }
 
@@ -24,8 +26,6 @@ namespace Project4
         protected abstract void GetFromUser();
 
         protected abstract void GetRandom();
-
-        public abstract decimal GetAverageValue();
 
         public abstract void Print();
     }
